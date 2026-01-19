@@ -12,8 +12,8 @@
       <div class="icon-wrapper">
         <span class="icon">✈️</span>
       </div>
-      <h1 class="page-title">智能旅行助手</h1>
-      <p class="page-subtitle">基于AI的个性化旅行规划,让每一次出行都完美无忧</p>
+      <h1 class="page-title">Intelligent Travel Assistant</h1>
+      <p class="page-subtitle">AI-powered personalized trip planning for perfect journeys</p>
     </div>
 
     <a-card class="form-card" :bordered="false">
@@ -26,18 +26,18 @@
         <div class="form-section">
           <div class="section-header">
             <span class="section-icon">📍</span>
-            <span class="section-title">目的地与日期</span>
+            <span class="section-title">Destination & Dates</span>
           </div>
 
           <a-row :gutter="24">
             <a-col :span="8">
-              <a-form-item name="city" :rules="[{ required: true, message: '请输入目的地城市' }]">
+              <a-form-item name="city" :rules="[{ required: true, message: 'Please enter destination city' }]">
                 <template #label>
-                  <span class="form-label">目的地城市</span>
+                  <span class="form-label">Destination City</span>
                 </template>
                 <a-input
                   v-model:value="formData.city"
-                  placeholder="例如: 北京"
+                  placeholder="e.g., Beijing"
                   size="large"
                   class="custom-input"
                 >
@@ -48,41 +48,41 @@
               </a-form-item>
             </a-col>
             <a-col :span="6">
-              <a-form-item name="start_date" :rules="[{ required: true, message: '请选择开始日期' }]">
+              <a-form-item name="start_date" :rules="[{ required: true, message: 'Please select start date' }]">
                 <template #label>
-                  <span class="form-label">开始日期</span>
+                  <span class="form-label">Start Date</span>
                 </template>
                 <a-date-picker
                   v-model:value="formData.start_date"
                   style="width: 100%"
                   size="large"
                   class="custom-input"
-                  placeholder="选择日期"
+                  placeholder="Select date"
                 />
               </a-form-item>
             </a-col>
             <a-col :span="6">
-              <a-form-item name="end_date" :rules="[{ required: true, message: '请选择结束日期' }]">
+              <a-form-item name="end_date" :rules="[{ required: true, message: 'Please select end date' }]">
                 <template #label>
-                  <span class="form-label">结束日期</span>
+                  <span class="form-label">End Date</span>
                 </template>
                 <a-date-picker
                   v-model:value="formData.end_date"
                   style="width: 100%"
                   size="large"
                   class="custom-input"
-                  placeholder="选择日期"
+                  placeholder="Select date"
                 />
               </a-form-item>
             </a-col>
             <a-col :span="4">
               <a-form-item>
                 <template #label>
-                  <span class="form-label">旅行天数</span>
+                  <span class="form-label">Travel Days</span>
                 </template>
                 <div class="days-display-compact">
                   <span class="days-value">{{ formData.travel_days }}</span>
-                  <span class="days-unit">天</span>
+                  <span class="days-unit">days</span>
                 </div>
               </a-form-item>
             </a-col>
@@ -93,49 +93,49 @@
         <div class="form-section">
           <div class="section-header">
             <span class="section-icon">⚙️</span>
-            <span class="section-title">偏好设置</span>
+            <span class="section-title">Preferences</span>
           </div>
 
           <a-row :gutter="24">
             <a-col :span="8">
               <a-form-item name="transportation">
                 <template #label>
-                  <span class="form-label">交通方式</span>
+                  <span class="form-label">Transportation</span>
                 </template>
                 <a-select v-model:value="formData.transportation" size="large" class="custom-select">
-                  <a-select-option value="公共交通">🚇 公共交通</a-select-option>
-                  <a-select-option value="自驾">🚗 自驾</a-select-option>
-                  <a-select-option value="步行">🚶 步行</a-select-option>
-                  <a-select-option value="混合">🔀 混合</a-select-option>
+                  <a-select-option value="公共交通">🚇 Public Transit</a-select-option>
+                  <a-select-option value="自驾">🚗 Self-Drive</a-select-option>
+                  <a-select-option value="步行">🚶 Walking</a-select-option>
+                  <a-select-option value="混合">🔀 Mixed</a-select-option>
                 </a-select>
               </a-form-item>
             </a-col>
             <a-col :span="8">
               <a-form-item name="accommodation">
                 <template #label>
-                  <span class="form-label">住宿偏好</span>
+                  <span class="form-label">Accommodation</span>
                 </template>
                 <a-select v-model:value="formData.accommodation" size="large" class="custom-select">
-                  <a-select-option value="经济型酒店">💰 经济型酒店</a-select-option>
-                  <a-select-option value="舒适型酒店">🏨 舒适型酒店</a-select-option>
-                  <a-select-option value="豪华酒店">⭐ 豪华酒店</a-select-option>
-                  <a-select-option value="民宿">🏡 民宿</a-select-option>
+                  <a-select-option value="经济型酒店">💰 Budget Hotel</a-select-option>
+                  <a-select-option value="舒适型酒店">🏨 Comfortable Hotel</a-select-option>
+                  <a-select-option value="豪华酒店">⭐ Luxury Hotel</a-select-option>
+                  <a-select-option value="民宿">🏡 Homestay</a-select-option>
                 </a-select>
               </a-form-item>
             </a-col>
             <a-col :span="8">
               <a-form-item name="preferences">
                 <template #label>
-                  <span class="form-label">旅行偏好</span>
+                  <span class="form-label">Travel Preferences</span>
                 </template>
                 <div class="preference-tags">
                   <a-checkbox-group v-model:value="formData.preferences" class="custom-checkbox-group">
-                    <a-checkbox value="历史文化" class="preference-tag">🏛️ 历史文化</a-checkbox>
-                    <a-checkbox value="自然风光" class="preference-tag">🏞️ 自然风光</a-checkbox>
-                    <a-checkbox value="美食" class="preference-tag">🍜 美食</a-checkbox>
-                    <a-checkbox value="购物" class="preference-tag">🛍️ 购物</a-checkbox>
-                    <a-checkbox value="艺术" class="preference-tag">🎨 艺术</a-checkbox>
-                    <a-checkbox value="休闲" class="preference-tag">☕ 休闲</a-checkbox>
+                    <a-checkbox value="历史文化" class="preference-tag">🏛️ History & Culture</a-checkbox>
+                    <a-checkbox value="自然风光" class="preference-tag">🏞️ Natural Scenery</a-checkbox>
+                    <a-checkbox value="美食" class="preference-tag">🍜 Food</a-checkbox>
+                    <a-checkbox value="购物" class="preference-tag">🛍️ Shopping</a-checkbox>
+                    <a-checkbox value="艺术" class="preference-tag">🎨 Art</a-checkbox>
+                    <a-checkbox value="休闲" class="preference-tag">☕ Leisure</a-checkbox>
                   </a-checkbox-group>
                 </div>
               </a-form-item>
@@ -147,13 +147,13 @@
         <div class="form-section">
           <div class="section-header">
             <span class="section-icon">💬</span>
-            <span class="section-title">额外要求</span>
+            <span class="section-title">Additional Requirements</span>
           </div>
 
           <a-form-item name="free_text_input">
             <a-textarea
               v-model:value="formData.free_text_input"
-              placeholder="请输入您的额外要求,例如:想去看升旗、需要无障碍设施、对海鲜过敏等..."
+              placeholder="Please enter your additional requirements, e.g., want to see flag-raising ceremony, need accessible facilities, allergic to seafood, etc..."
               :rows="3"
               size="large"
               class="custom-textarea"
@@ -173,10 +173,10 @@
           >
             <template v-if="!loading">
               <span class="button-icon">🚀</span>
-              <span>开始规划我的旅行</span>
+              <span>Start Planning My Trip</span>
             </template>
             <template v-else>
-              <span>正在生成中...</span>
+              <span>Generating...</span>
             </template>
           </a-button>
         </a-form-item>
@@ -221,8 +221,8 @@ const formData = reactive<TripFormData & { start_date: Dayjs | null; end_date: D
   start_date: null,
   end_date: null,
   travel_days: 1,
-  transportation: '公共交通',
-  accommodation: '经济型酒店',
+  transportation: '公共交通', // Keep value same for backend compatibility
+  accommodation: '经济型酒店', // Keep value same for backend compatibility
   preferences: [],
   free_text_input: ''
 })
@@ -234,10 +234,10 @@ watch([() => formData.start_date, () => formData.end_date], ([start, end]) => {
     if (days > 0 && days <= 30) {
       formData.travel_days = days
     } else if (days > 30) {
-      message.warning('旅行天数不能超过30天')
+      message.warning('Travel days cannot exceed 30 days')
       formData.end_date = null
     } else {
-      message.warning('结束日期不能早于开始日期')
+      message.warning('End date cannot be earlier than start date')
       formData.end_date = null
     }
   }
@@ -245,28 +245,28 @@ watch([() => formData.start_date, () => formData.end_date], ([start, end]) => {
 
 const handleSubmit = async () => {
   if (!formData.start_date || !formData.end_date) {
-    message.error('请选择日期')
+    message.error('Please select dates')
     return
   }
 
   loading.value = true
   loadingProgress.value = 0
-  loadingStatus.value = '正在初始化...'
+  loadingStatus.value = 'Initializing...'
 
-  // 模拟进度更新
+  // Simulate progress updates
   const progressInterval = setInterval(() => {
     if (loadingProgress.value < 90) {
       loadingProgress.value += 10
 
-      // 更新状态文本
+      // Update status text
       if (loadingProgress.value <= 30) {
-        loadingStatus.value = '🔍 正在搜索景点...'
+        loadingStatus.value = '🔍 Searching attractions...'
       } else if (loadingProgress.value <= 50) {
-        loadingStatus.value = '🌤️ 正在查询天气...'
+        loadingStatus.value = '🌤️ Querying weather...'
       } else if (loadingProgress.value <= 70) {
-        loadingStatus.value = '🏨 正在推荐酒店...'
+        loadingStatus.value = '🏨 Recommending hotels...'
       } else {
-        loadingStatus.value = '📋 正在生成行程计划...'
+        loadingStatus.value = '📋 Generating trip plan...'
       }
     }
   }, 500)
@@ -287,7 +287,7 @@ const handleSubmit = async () => {
 
     clearInterval(progressInterval)
     loadingProgress.value = 100
-    loadingStatus.value = '✅ 完成!'
+    loadingStatus.value = '✅ Complete!'
 
     // 调试：打印响应
     console.log('🔍 [前端调试] 收到响应:', response)
@@ -312,7 +312,7 @@ const handleSubmit = async () => {
       const saved = sessionStorage.getItem('tripPlan')
       console.log('🔍 [前端调试] sessionStorage保存验证:', saved ? `成功，长度: ${saved.length}` : '失败')
 
-      message.success('旅行计划生成成功!')
+      message.success('Trip plan generated successfully!')
 
       // 短暂延迟后跳转
       setTimeout(() => {
@@ -325,11 +325,11 @@ const handleSubmit = async () => {
         hasData: !!response.data,
         message: response.message
       })
-      message.error(response.message || '生成失败')
+      message.error(response.message || 'Generation failed')
     }
   } catch (error: any) {
     clearInterval(progressInterval)
-    message.error(error.message || '生成旅行计划失败,请稍后重试')
+    message.error(error.message || 'Failed to generate trip plan, please try again later')
   } finally {
     setTimeout(() => {
       loading.value = false

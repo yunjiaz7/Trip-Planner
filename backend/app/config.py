@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     """应用配置"""
 
     # 应用基本配置
-    app_name: str = "HelloAgents智能旅行助手"
+    app_name: str = "Trip Planner - Intelligent Travel Assistant"
     app_version: str = "1.0.0"
     debug: bool = False
 
@@ -84,28 +84,28 @@ def validate_config():
         raise ValueError(error_msg)
 
     if warnings:
-        print("\n⚠️  配置警告:")
+        print("\n⚠️  Configuration warnings:")
         for w in warnings:
             print(f"  - {w}")
 
     return True
 
 
-# 打印配置信息(用于调试)
+# Print configuration information (for debugging)
 def print_config():
-    """打印当前配置(隐藏敏感信息)"""
-    print(f"应用名称: {settings.app_name}")
-    print(f"版本: {settings.app_version}")
-    print(f"服务器: {settings.host}:{settings.port}")
-    print(f"高德地图API Key: {'已配置' if settings.amap_api_key else '未配置'}")
+    """Print current configuration (hide sensitive information)"""
+    print(f"Application Name: {settings.app_name}")
+    print(f"Version: {settings.app_version}")
+    print(f"Server: {settings.host}:{settings.port}")
+    print(f"Amap API Key: {'Configured' if settings.amap_api_key else 'Not configured'}")
 
-    # 检查LLM配置
+    # Check LLM configuration
     llm_api_key = os.getenv("LLM_API_KEY") or os.getenv("OPENAI_API_KEY")
     llm_base_url = os.getenv("LLM_BASE_URL") or settings.openai_base_url
     llm_model = os.getenv("LLM_MODEL_ID") or settings.openai_model
 
-    print(f"LLM API Key: {'已配置' if llm_api_key else '未配置'}")
+    print(f"LLM API Key: {'Configured' if llm_api_key else 'Not configured'}")
     print(f"LLM Base URL: {llm_base_url}")
     print(f"LLM Model: {llm_model}")
-    print(f"日志级别: {settings.log_level}")
+    print(f"Log Level: {settings.log_level}")
 

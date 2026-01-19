@@ -1,4 +1,4 @@
-"""POI相关API路由"""
+"""POI Related API Routes"""
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
@@ -19,54 +19,54 @@ class POIDetailResponse(BaseModel):
 @router.get(
     "/detail/{poi_id}",
     response_model=POIDetailResponse,
-    summary="获取POI详情",
-    description="根据POI ID获取详细信息,包括图片"
+    summary="Get POI Details",
+    description="Get detailed information for a POI by ID, including images"
 )
 async def get_poi_detail(poi_id: str):
     """
-    获取POI详情
+    Get POI details
     
     Args:
         poi_id: POI ID
         
     Returns:
-        POI详情响应
+        POI details response
     """
     try:
         amap_service = get_amap_service()
         
-        # 调用高德地图POI详情API
+        # Call Amap POI details API
         result = amap_service.get_poi_detail(poi_id)
         
         return POIDetailResponse(
             success=True,
-            message="获取POI详情成功",
+            message="POI details retrieved successfully",
             data=result
         )
         
     except Exception as e:
-        print(f"❌ 获取POI详情失败: {str(e)}")
+        print(f"❌ Failed to get POI details: {str(e)}")
         raise HTTPException(
             status_code=500,
-            detail=f"获取POI详情失败: {str(e)}"
+            detail=f"Failed to get POI details: {str(e)}"
         )
 
 
 @router.get(
     "/search",
-    summary="搜索POI",
-    description="根据关键词搜索POI"
+    summary="Search POI",
+    description="Search for POIs by keywords"
 )
-async def search_poi(keywords: str, city: str = "北京"):
+async def search_poi(keywords: str, city: str = "Beijing"):
     """
-    搜索POI
+    Search POI
 
     Args:
-        keywords: 搜索关键词
-        city: 城市名称
+        keywords: Search keywords
+        city: City name
 
     Returns:
-        搜索结果
+        Search results
     """
     try:
         amap_service = get_amap_service()
@@ -74,46 +74,46 @@ async def search_poi(keywords: str, city: str = "北京"):
 
         return {
             "success": True,
-            "message": "搜索成功",
+            "message": "Search successful",
             "data": result
         }
 
     except Exception as e:
-        print(f"❌ 搜索POI失败: {str(e)}")
+        print(f"❌ POI search failed: {str(e)}")
         raise HTTPException(
             status_code=500,
-            detail=f"搜索POI失败: {str(e)}"
+            detail=f"POI search failed: {str(e)}"
         )
 
 
 @router.get(
     "/photo",
-    summary="获取景点图片",
-    description="根据景点名称从Unsplash获取图片"
+    summary="Get Attraction Photo",
+    description="Get photo for an attraction by name from Unsplash"
 )
 async def get_attraction_photo(name: str):
     """
-    获取景点图片
+    Get attraction photo
 
     Args:
-        name: 景点名称
+        name: Attraction name
 
     Returns:
-        图片URL
+        Photo URL
     """
     try:
         unsplash_service = get_unsplash_service()
 
-        # 搜索景点图片
+        # Search for attraction photo
         photo_url = unsplash_service.get_photo_url(f"{name} China landmark")
 
         if not photo_url:
-            # 如果没找到,尝试只用景点名称搜索
+            # If not found, try searching with just the attraction name
             photo_url = unsplash_service.get_photo_url(name)
 
         return {
             "success": True,
-            "message": "获取图片成功",
+            "message": "Photo retrieved successfully",
             "data": {
                 "name": name,
                 "photo_url": photo_url
@@ -121,9 +121,9 @@ async def get_attraction_photo(name: str):
         }
 
     except Exception as e:
-        print(f"❌ 获取景点图片失败: {str(e)}")
+        print(f"❌ Failed to get attraction photo: {str(e)}")
         raise HTTPException(
             status_code=500,
-            detail=f"获取景点图片失败: {str(e)}"
+            detail=f"Failed to get attraction photo: {str(e)}"
         )
 

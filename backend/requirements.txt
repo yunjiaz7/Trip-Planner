@@ -1,5 +1,13 @@
-# HelloAgents框架
-hello-agents[protocols]>=0.2.4
+# 注意：本项目需要 Python 3.10 或更高版本
+# 如果使用 Python 3.9，某些包（如 pydantic 2.x）可能无法安装
+
+# LangChain框架 (迁移后使用)
+langchain>=0.1.0
+langchain-openai>=0.0.5
+langchain-core>=0.1.0
+
+# HelloAgents框架 (保留用于兼容，后续可移除)
+# hello-agents[protocols]>=0.2.4
 
 # FastAPI和相关依赖
 fastapi>=0.115.0
@@ -21,12 +29,13 @@ python-multipart>=0.0.9
 loguru>=0.7.0
 
 # MCP相关
-fastmcp>=2.0.0
-uv>=0.8.0
+# 注意：uv 是命令行工具，需要通过系统包管理器安装，不是Python包
+# 安装方法：curl -LsSf https://astral.sh/uv/install.sh | sh
+# fastmcp 包不存在，已移除
 
 # 其他工具
 python-dateutil>=2.8.2
 
-# HelloAgents 评估模块依赖
+# HelloAgents 评估模块依赖 (保留用于兼容)
 huggingface_hub>=0.19.0
 

@@ -12,7 +12,7 @@ settings = get_settings()
 app = FastAPI(
     title=settings.app_name,
     version=settings.app_version,
-    description="基于HelloAgents框架的智能旅行规划助手API",
+    description="Intelligent Trip Planning Assistant API based on LangChain framework",
     docs_url="/docs",
     redoc_url="/redoc"
 )
@@ -42,18 +42,18 @@ async def startup_event():
     # 打印配置信息
     print_config()
     
-    # 验证配置
+    # Validate configuration
     try:
         validate_config()
-        print("\n✅ 配置验证通过")
+        print("\n✅ Configuration validation passed")
     except ValueError as e:
-        print(f"\n❌ 配置验证失败:\n{e}")
-        print("\n请检查.env文件并确保所有必要的配置项都已设置")
+        print(f"\n❌ Configuration validation failed:\n{e}")
+        print("\nPlease check the .env file and ensure all necessary configuration items are set")
         raise
     
     print("\n" + "="*60)
-    print("📚 API文档: http://localhost:8000/docs")
-    print("📖 ReDoc文档: http://localhost:8000/redoc")
+    print("📚 API Documentation: http://localhost:8000/docs")
+    print("📖 ReDoc Documentation: http://localhost:8000/redoc")
     print("="*60 + "\n")
 
 
@@ -61,7 +61,7 @@ async def startup_event():
 async def shutdown_event():
     """应用关闭事件"""
     print("\n" + "="*60)
-    print("👋 应用正在关闭...")
+    print("👋 Application is shutting down...")
     print("="*60 + "\n")
 
 
