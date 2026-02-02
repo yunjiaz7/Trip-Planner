@@ -8,7 +8,6 @@
 
 An intelligent trip planning assistant built on the LangChain framework, integrated with Amap (Gaode Map) MCP services, providing personalized multi-day travel plan generation.
 
-> **📌 Project Origin**: This project was migrated from the [HelloAgents](https://github.com/datawhalechina/Hello-Agents) framework's trip planning example. It has been fully migrated to the LangChain framework with enhanced functionality and optimizations.
 
 ## ✨ Features
 
@@ -17,7 +16,6 @@ An intelligent trip planning assistant built on the LangChain framework, integra
 - 🧠 **Intelligent Tool Calling**: Specialized agents automatically call Amap MCP tools to obtain real-time POI, route, and weather information
 - 🎨 **Modern Frontend**: Vue3 + TypeScript + Vite with responsive design and smooth user experience
 - 📱 **Complete Features**: Includes accommodation, transportation, dining, and attraction visit time recommendations
-- 🌐 **English Output**: All prompts and outputs are in English, suitable for international use
 
 ## 🏗️ Tech Stack
 
