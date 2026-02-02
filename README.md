@@ -9,6 +9,8 @@
 An intelligent trip planning assistant built on the LangChain framework, integrated with Amap (Gaode Map) MCP services, providing personalized multi-day travel plan generation.
 
 
+example output: [trip plan for Beijing](output_Beijing_eg.pdf)
+
 ## ✨ Features
 
 - 🤖 **AI-Powered Trip Planning**: Intelligent multi-day itinerary generation based on LangChain multi-agent system
